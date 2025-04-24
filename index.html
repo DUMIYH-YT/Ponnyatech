@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER ADHI OFC - Best Developer in Sri Lanka</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary: #ff0000;
+            --secondary: #000000;
+            --accent: #00ff00;
+            --text: #ffffff;
+            --bg: #111111;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--text), 0 0 10px var(--text), 0 0 15px var(--primary), 0 0 20px var(--primary);
+            }
+            to {
+                text-shadow: 0 0 10px var(--text), 0 0 20px var(--text), 0 0 30px var(--primary), 0 0 40px var(--primary);
+            }
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            animation: underline 3s infinite;
+        }
+        
+        @keyframes underline {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease-out;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            color: var(--text);
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+        
+        button {
+            background: linear-gradient(135deg, var(--primary), #990000);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--secondary), #330000);
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px) scale(1.2);
+        }
+        
+        .dragon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            animation: fly 10s linear infinite;
+            z-index: 100;
+            opacity: 0.7;
+        }
+        
+        @keyframes fly {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-100px) rotate(-10deg); }
+            50% { transform: translateX(-200px) rotate(0deg); }
+            75% { transform: translateX(-100px) rotate(10deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CYBER ADHI OFC</h1>
+            <p class="tagline">OWNER OF QUEEN DEWMINI MD WHATSAPP USER BOT | BEST DEVELOPER IN SRI LANKA</p>
+        </div>
+    </header>
+    
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am the <span class="highlight">BEST WEBSITE CREATOR</span>, <span class="highlight">WHATSAPP BOT DEVELOPER</span>, <span class="highlight">APP CODER</span>, <span class="highlight">MOBILE ERROR FIXER</span>, and <span class="highlight">WEB HOSTER</span> in Sri Lanka.</p>
+            
+            <div class="services">
+                <div class="service-card">
+                    <h3>CODING EXPERT</h3>
+                    <p>Hey I am the best coder in Sri Lanka. Contact me for all your programming needs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>WEB CREATION</h3>
+                    <p>Sri Lanka's number one website creator and web hosting provider.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>GRAPHIC DESIGN</h3>
+                    <p>I am the best graphic designer in Sri Lanka, specializing in code-based designs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <p>I offer a wide range of digital services to help you establish and grow your online presence:</p>
+            
+            <div class="services">
+                <div class="service-card">
+                    <h3>Website Development</h3>
+                    <p>Custom websites tailored to your business needs with cutting-edge technologies.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>WhatsApp Bots</h3>
+                    <p>Automate your business communications with custom WhatsApp bot solutions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Mobile App Development</h3>
+                    <p>Create powerful mobile applications for iOS and Android platforms.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Graphic Design</h3>
+                    <p>Professional logo design, banners, and marketing materials for your brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Ready to start your project? Get in touch with me today!</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">ADHI OFC</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">ADD YOUR DESCRIPTION</label>
+                    <textarea id="description" rows="5" placeholder="Your Description" required></textarea>
+                </div>
+                
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p> 2021 ADHI OFC. All Rights Reserved.</p>
+            <p>Sri Lanka's Premier Digital Solutions Provider</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61557445825442&mibextid=ZbWKwL">FB</a>
+                <a href="https://api.whatsapp.com/send?phone=+94741354157&text=">WA</a>
+                <a href="https://www.instagram.com/theekshanarathnaweera?igsh=MWptaHFoc2N2NGt2aQ==">IG</a>
+                <a href="https://whatsapp.com/channel/0029VaicB1MISTkGyQ7Bqe23">WAC</a>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="dragon">🐉</div>
+    
+    <script>
+        // Simple form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will contact you soon.');
+            this.reset();
+        });
+        
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
